@@ -14,7 +14,6 @@ import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.shuyu.gsyvideoplayer.utils.Debuger;
 
 import java.io.FileDescriptor;
 import java.util.List;

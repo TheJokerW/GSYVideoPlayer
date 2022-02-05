@@ -13,7 +13,6 @@ import com.example.gsyvideoplayer.model.VideoModel;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoHelper;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

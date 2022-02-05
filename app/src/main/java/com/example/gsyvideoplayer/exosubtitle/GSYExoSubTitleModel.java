@@ -1,12 +1,9 @@
 package com.example.gsyvideoplayer.exosubtitle;
 
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.text.TextOutput;
 import com.shuyu.gsyvideoplayer.model.GSYModel;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**

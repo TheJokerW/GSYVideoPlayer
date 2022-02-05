@@ -11,11 +11,9 @@ import android.transition.Transition;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.gsyvideoplayer.databinding.ActivityPlayEmptyControlBinding;
 import com.example.gsyvideoplayer.databinding.ActivityPlayPickBinding;
 import com.example.gsyvideoplayer.listener.OnTransitionListener;
 import com.example.gsyvideoplayer.model.SwitchVideoModel;
-import com.example.gsyvideoplayer.video.SmartPickVideo;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 

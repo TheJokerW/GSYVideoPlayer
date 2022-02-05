@@ -2,11 +2,8 @@ package com.example.gsyvideoplayer;
 
 import android.os.Bundle;
 
-import androidx.core.widget.NestedScrollView;
-
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.example.gsyvideoplayer.databinding.ActivityDeatilListPlayerBinding;
 import com.shuyu.gsyvideoplayer.GSYBaseActivityDetail;

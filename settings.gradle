@@ -1,12 +1,16 @@
-include ":app",
-    ":gsyVideoPlayer",
-    ":gsyVideoPlayer-java",
-    ":gsyVideoPlayer-armv5",
-    ":gsyVideoPlayer-armv7a",
-    ":gsyVideoPlayer-armv64",
-    ":gsyVideoPlayer-x86",
-    ":gsyVideoPlayer-x86_64",
-    ":gsyVideoPlayer-ex_so",
-    ":gsyVideoPlayer-proxy_cache",
-    ":gsyVideoPlayer-exo_player2",
-    ":gsyVideoPlayer-base"
+include ":app"
+
+include ":gsyVideoPlayer-dependencies",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-java",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-armv5",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-armv7a",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-armv64",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-x86",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-x86_64",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-ex_so",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-proxy_cache",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-exo_player2",
+":gsyVideoPlayer-dependencies:gsyVideoPlayer-base"
+include ':Downloader'
+include ':Downloader:common'

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.gsyvideoplayer.video.FloatingVideo;
-import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 /**
  * 适配了悬浮窗的view

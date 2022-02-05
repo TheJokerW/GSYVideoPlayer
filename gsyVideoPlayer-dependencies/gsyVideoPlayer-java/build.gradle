@@ -1,0 +1,12 @@
+apply from: "$rootDir/gradle/lib.gradle"
+
+apply from: "$rootDir/gradle/publish.gradle"
+
+dependencies {
+    implementation androidDependencies.appCompat
+
+    api viewDependencies.ijkplayer
+    api viewDependencies.transitionsEverywhere
+    api project(":gsyVideoPlayer-dependencies:gsyVideoPlayer-proxy_cache")
+    api project(":gsyVideoPlayer-dependencies:gsyVideoPlayer-base")
+}

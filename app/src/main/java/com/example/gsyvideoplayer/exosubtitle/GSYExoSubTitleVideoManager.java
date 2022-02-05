@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.text.TextOutput;
 import com.shuyu.gsyvideoplayer.GSYVideoBaseManager;
 import com.shuyu.gsyvideoplayer.player.IPlayerManager;
 import com.shuyu.gsyvideoplayer.utils.CommonUtil;

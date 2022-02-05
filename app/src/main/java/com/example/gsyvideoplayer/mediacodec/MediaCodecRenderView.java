@@ -3,7 +3,6 @@ package com.example.gsyvideoplayer.mediacodec;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.example.gsyvideoplayer.view.CustomTextureSurface;
 import com.shuyu.gsyvideoplayer.render.GSYRenderView;
 import com.shuyu.gsyvideoplayer.render.glrender.GSYVideoGLViewBaseRender;
 import com.shuyu.gsyvideoplayer.render.view.GSYVideoGLView;

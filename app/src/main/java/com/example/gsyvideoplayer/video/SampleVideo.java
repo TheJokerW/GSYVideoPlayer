@@ -2,7 +2,6 @@ package com.example.gsyvideoplayer.video;
 
 import android.content.Context;
 import android.graphics.Matrix;
-import android.graphics.SurfaceTexture;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.Surface;

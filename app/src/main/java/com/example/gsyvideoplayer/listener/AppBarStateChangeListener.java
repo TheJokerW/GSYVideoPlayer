@@ -2,7 +2,6 @@ package com.example.gsyvideoplayer.listener;
 
 
 import com.google.android.material.appbar.AppBarLayout;
-import com.shuyu.gsyvideoplayer.utils.Debuger;
 
 public abstract class AppBarStateChangeListener implements AppBarLayout.OnOffsetChangedListener {
 

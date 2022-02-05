@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
 
-import com.shuyu.gsyvideoplayer.GSYVideoADManager;
-
 import java.util.Random;
 
 public class RequestListADVideoPlayer extends ListADVideoPlayer {

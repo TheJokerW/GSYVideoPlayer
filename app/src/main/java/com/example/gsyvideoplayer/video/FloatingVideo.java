@@ -17,9 +17,6 @@ import com.shuyu.gsyvideoplayer.utils.NetworkUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import java.util.Timer;
-import java.util.TimerTask;
-
-import static com.shuyu.gsyvideoplayer.utils.CommonUtil.hideNavKey;
 
 /**
  * 多窗体下的悬浮窗页面支持Video
