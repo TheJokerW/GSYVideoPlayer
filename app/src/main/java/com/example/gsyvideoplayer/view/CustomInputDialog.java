@@ -15,7 +15,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.example.gsyvideoplayer.R;
 
 public class CustomInputDialog extends Dialog {

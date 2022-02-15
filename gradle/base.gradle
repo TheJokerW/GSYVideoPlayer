@@ -6,7 +6,7 @@ android {
         targetSdk 30
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildFeatures.buildConfig = false
+    buildFeatures.buildConfig = true
 }
 
 dependencies {

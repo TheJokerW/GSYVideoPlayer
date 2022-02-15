@@ -16,7 +16,7 @@
  */
 package org.apache.commons.io;
 
-import com.joker.downloader.util.StringUtils;
+import com.joker.util.StringUtils;
 
 import java.io.File;
 import java.util.ArrayList;

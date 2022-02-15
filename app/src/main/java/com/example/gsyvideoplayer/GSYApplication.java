@@ -1,5 +1,7 @@
 package com.example.gsyvideoplayer;
 
+import android.content.Context;
+
 import androidx.annotation.Nullable;
 import androidx.multidex.MultiDexApplication;
 
@@ -7,9 +9,18 @@ import com.example.gsyvideoplayer.exosource.GSYExoHttpDataSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.TransferListener;
+import com.joker.android.AndroidPlatform;
+import com.joker.bittorrent.BTContext;
+import com.joker.bittorrent.BTEngine;
+import com.joker.platform.Platforms;
+import com.joker.platform.SystemPaths;
+import com.joker.util.Ref;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 
 import tv.danmaku.ijk.media.exo2.ExoMediaSourceInterceptListener;
 import tv.danmaku.ijk.media.exo2.ExoSourceManager;
@@ -23,6 +34,9 @@ public class GSYApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        new Thread(new BTEngineInitializer(Ref.weak(this))).start();
+        Platforms.set(new AndroidPlatform(this));
+
         /*if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -129,5 +143,48 @@ public class GSYApplication extends MultiDexApplication {
 
     }
 
+    // don't try to refactor this into an async call since this guy runs on a thread
+    // outside the Engine threadpool
+    private static class BTEngineInitializer implements Runnable {
+        private final WeakReference<Context> mainAppRef;
 
+        BTEngineInitializer(WeakReference<Context> mainAppRef) {
+            this.mainAppRef = mainAppRef;
+        }
+
+        public void run() {
+            SystemPaths paths = Platforms.get().systemPaths();
+
+            BTContext ctx = new BTContext();
+            ctx.homeDir = paths.libtorrent();
+            ctx.torrentsDir = paths.torrents();
+            ctx.dataDir = paths.data();
+            ctx.optimizeMemory = true;
+
+            // port range [37000, 57000]
+            int port0 = 37000 + new Random().nextInt(20000);
+            int port1 = port0 + 10; // 10 retries
+            String iface = "0.0.0.0:%1$d,[::]:%1$d";
+            ctx.interfaces = String.format(Locale.US, iface, port0);
+            ctx.retries = port1 - port0;
+
+            ctx.enableDht = true;
+//            Simulate slow BTContext initialization
+//            try {
+//                Thread.sleep(60000);
+//            } catch (InterruptedException e) {
+//            }
+            String[] vStrArray = BuildConfig.VERSION_NAME.split("\\.");
+            ctx.version[0] = Integer.parseInt(vStrArray[0]);
+            ctx.version[1] = Integer.parseInt(vStrArray[1]);
+            ctx.version[2] = Integer.parseInt(vStrArray[2]);
+
+            BTEngine.ctx = ctx;
+            BTEngine.onCtxSetupComplete();
+            BTEngine.getInstance().start();
+
+        }
+
+
+}
 }
