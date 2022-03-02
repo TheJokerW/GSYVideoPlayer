@@ -70,7 +70,6 @@ public final class AndroidPaths implements SystemPaths {
     private static final Object fileTypeFoldersLock = new Object();
     private static MediaType mediaTypeForExtension;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public AndroidPaths(Application app) {
         this.app = app;
         internalFilesDir = app.getFilesDir();

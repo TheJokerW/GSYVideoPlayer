@@ -5,7 +5,7 @@ apply from: "../gradle/exported.gradle"
 
 android {
     defaultConfig {
-        applicationId "com.example.gsyvideoplayer"
+        applicationId "com.example.xcvideoplayer"
         versionCode 21
         versionName PROJ_VERSION
 

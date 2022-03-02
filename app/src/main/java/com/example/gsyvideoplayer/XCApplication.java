@@ -29,13 +29,13 @@ import tv.danmaku.ijk.media.exo2.ExoSourceManager;
  * Created by shuyu on 2016/11/11.
  */
 
-public class GSYApplication extends MultiDexApplication {
+public class XCApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        new Thread(new BTEngineInitializer(Ref.weak(this))).start();
         Platforms.set(new AndroidPlatform(this));
+        new Thread(new BTEngineInitializer(Ref.weak(this))).start();
 
         /*if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
