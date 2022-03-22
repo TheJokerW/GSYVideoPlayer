@@ -1,0 +1,8 @@
+apply from: "$rootDir/gradle/lib.gradle"
+
+dependencies {
+
+    implementation androidDependencies.design
+
+    implementation cacheDepencies.JeffVideoCache
+}

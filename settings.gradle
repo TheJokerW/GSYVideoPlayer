@@ -12,5 +12,6 @@ include ":gsyVideoPlayer-dependencies",
 ":gsyVideoPlayer-dependencies:gsyVideoPlayer-proxy_cache",
 ":gsyVideoPlayer-dependencies:gsyVideoPlayer-exo_player2",
 ":gsyVideoPlayer-dependencies:gsyVideoPlayer-base"
-include ':Downloader'
-include ':Downloader:common'
+include ':Downloader',
+    ':Downloader:common',
+    ':Downloader:videoCache'
