@@ -188,7 +188,7 @@ public class DetailFilterActivity extends GSYBaseActivityDetail<StandardGSYVideo
                 //JumpUtils.gotoControl(DetailFilterActivity.this);
                 //startActivity(new Intent(DetailControlActivity.this, MainActivity.class));
 
-                DetailFilterActivityPermissionsDispatcher.shotImageWithPermissionCheck(DetailFilterActivity.this, v);
+//                DetailFilterActivityPermissionsDispatcher.shotImageWithPermissionCheck(DetailFilterActivity.this, v);
             }
         });
 
@@ -216,7 +216,7 @@ public class DetailFilterActivity extends GSYBaseActivityDetail<StandardGSYVideo
         binding.startGif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailFilterActivityPermissionsDispatcher.startGifWithPermissionCheck(DetailFilterActivity.this);
+//                DetailFilterActivityPermissionsDispatcher.startGifWithPermissionCheck(DetailFilterActivity.this);
             }
         });
 
@@ -594,6 +594,6 @@ public class DetailFilterActivity extends GSYBaseActivityDetail<StandardGSYVideo
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         // NOTE: delegate the permission handling to generated method
-        DetailFilterActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+//        DetailFilterActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 }

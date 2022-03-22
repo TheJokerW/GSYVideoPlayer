@@ -3,6 +3,7 @@ apply plugin: "com.android.application"
 apply from: "$rootDir/gradle/base.gradle"
 apply from: "../gradle/exported.gradle"
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 android {
     defaultConfig {
         applicationId "com.example.xcvideoplayer"
@@ -94,4 +95,17 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-analytics'
 
+
+    //app lifecycle
+    implementation lifecycleDependencises.lifecycle_viewmodel_ktx
+    implementation lifecycleDependencises.lifecycle_viewmodel_compose
+    implementation lifecycleDependencises.lifecycle_livedata_ktx
+    implementation lifecycleDependencises.lifecycle_runtime_ktx
+    implementation lifecycleDependencises.lifecycle_viewmodel_savedstate
+    kapt lifecycleDependencises.lifecycle_compiler
+    implementation lifecycleDependencises.ifecycle_common_java8
+    implementation lifecycleDependencises.lifecycle_service
+    implementation lifecycleDependencises.lifecycle_process
+    implementation lifecycleDependencises.lifecycle_reactivestreams_ktx
+    testImplementation lifecycleDependencises.core_testing
 }

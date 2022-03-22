@@ -112,7 +112,7 @@ public class DetailControlActivity extends GSYBaseActivityDetail<StandardGSYVide
         binding.shot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailControlActivityPermissionsDispatcher.shotImageWithPermissionCheck(DetailControlActivity.this, v);
+//                DetailControlActivityPermissionsDispatcher.shotImageWithPermissionCheck(DetailControlActivity.this, v);
             }
         });
 
@@ -120,7 +120,7 @@ public class DetailControlActivity extends GSYBaseActivityDetail<StandardGSYVide
         binding.startGif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailControlActivityPermissionsDispatcher.startGifWithPermissionCheck(DetailControlActivity.this);
+//                DetailControlActivityPermissionsDispatcher.startGifWithPermissionCheck(DetailControlActivity.this);
             }
         });
 
@@ -369,7 +369,7 @@ public class DetailControlActivity extends GSYBaseActivityDetail<StandardGSYVide
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         // NOTE: delegate the permission handling to generated method
-        DetailControlActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+//        DetailControlActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 
 }
