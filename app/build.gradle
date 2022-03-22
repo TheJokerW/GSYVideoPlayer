@@ -2,7 +2,7 @@ apply plugin: "com.android.application"
 
 apply from: "$rootDir/gradle/base.gradle"
 apply from: "../gradle/exported.gradle"
-
+apply plugin: 'kotlin-android'
 android {
     defaultConfig {
         applicationId "com.example.xcvideoplayer"

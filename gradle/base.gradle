@@ -16,4 +16,9 @@ dependencies {
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espressoCore
+
+    implementation kotlinDependencise.core_ktx
+    implementation kotlinDependencise.stdlib
+    implementation kotlinDependencise.coroutines_core
+    implementation kotlinDependencise.kotlinx_coroutines_android
 }

@@ -1,5 +1,5 @@
 apply from: "$rootDir/gradle/lib.gradle"
-
+apply plugin: 'kotlin-android'
 dependencies {
 
     implementation dataDependencies.okhttp
