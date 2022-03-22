@@ -6,6 +6,7 @@ dependencies {
     implementation googleDepencies.gson
     implementation googleDepencies.re2j
     implementation androidDependencies.design
+    androidTestImplementation testDependencies.junit
     api files('libs\\jlibtorrent-1.2.15.2.jar')
     api files('libs\\jlibtorrent-android-arm64-1.2.15.2.jar')
     api files('libs\\jlibtorrent-android-arm-1.2.15.2.jar')

@@ -3,6 +3,6 @@ apply from: "$rootDir/gradle/lib.gradle"
 dependencies {
 
     implementation androidDependencies.design
-
+    androidTestImplementation testDependencies.junit
     implementation cacheDepencies.JeffVideoCache
 }

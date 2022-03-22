@@ -15,7 +15,7 @@ ext {
     ]
 
     testDependencies = [
-        junit       : "junit:junit:4.13.2",
+        junit       : "androidx.test.ext:junit:1.1.1",
         runner      : "androidx.test:runner:1.4.0",
         espressoCore: "androidx.test.espresso:espresso-core:3.4.0"
     ]
