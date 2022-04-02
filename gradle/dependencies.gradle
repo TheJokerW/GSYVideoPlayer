@@ -103,4 +103,10 @@ ext {
         // optional - Test helpers for LiveData
         core_testing: "androidx.arch.core:core-testing:$arch_version"
     ]
+
+    baseDependencies = [
+        //EventBus
+        event_bus :"org.greenrobot:eventbus-java:3.3.1"
+    ]
+
 }
