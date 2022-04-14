@@ -1,11 +1,13 @@
 package com.example.gsyvideoplayer;
 
 import android.content.Context;
+import android.os.Environment;
 
 import androidx.annotation.Nullable;
 import androidx.multidex.MultiDexApplication;
 
 import com.example.gsyvideoplayer.exosource.GSYExoHttpDataSourceFactory;
+import com.example.gsyvideoplayer.xlog.XlogHelper;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.TransferListener;
@@ -15,6 +17,8 @@ import com.joker.bittorrent.BTEngine;
 import com.joker.platform.Platforms;
 import com.joker.platform.SystemPaths;
 import com.joker.util.Ref;
+import com.tencent.mars.xlog.Log;
+import com.tencent.mars.xlog.Xlog;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -34,6 +38,7 @@ public class XCApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        XlogHelper.Companion.initXlog(this);
         Platforms.set(new AndroidPlatform(this));
         new Thread(new BTEngineInitializer(Ref.weak(this))).start();
 
@@ -185,6 +190,12 @@ public class XCApplication extends MultiDexApplication {
 
         }
 
+    }
 
-}
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        Log.appenderClose();
+    }
 }

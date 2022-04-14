@@ -21,4 +21,5 @@ dependencies {
     implementation kotlinDependencise.stdlib
     implementation kotlinDependencise.coroutines_core
     implementation kotlinDependencise.kotlinx_coroutines_android
+    implementation tecentDependencies.xlog
 }

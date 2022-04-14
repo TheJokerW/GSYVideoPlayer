@@ -1,9 +1,19 @@
 apply from: "$rootDir/gradle/lib.gradle"
 apply plugin: 'kotlin-android'
+android{
+    sourceSets {
+        main {
+            java {
+                srcDir '../../KStateMachine/core/src/main' // 指定源码目录
+            }
+        }
+    }
+}
 dependencies {
     implementation(project(":Downloader:common"))
     implementation androidDependencies.design
     androidTestImplementation testDependencies.junit
     implementation cacheDepencies.JeffVideoCache
     implementation baseDependencies.event_bus
+    testImplementation testDependencies.kotlinxCoroutines
 }

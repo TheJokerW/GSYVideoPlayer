@@ -1,6 +1,5 @@
 package com.joker.videoCache.tasks
 
-import com.joker.videoCache.interfaces.ICacheTask
 
 /**
  * @ClassName Mp4CacheTask
@@ -21,7 +20,7 @@ class Mp4CacheTask: BaseTask(){
         TODO("Not yet implemented")
     }
 
-    override fun remove() {
+    override fun end() {
         TODO("Not yet implemented")
     }
 

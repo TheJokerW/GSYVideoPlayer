@@ -10,6 +10,6 @@ interface ICacheTask:Runnable {
     fun start()
     fun resume()
     fun pause()
-    fun remove()
+    fun end()
     fun seekToSyncCacheTaskFromClient(percent: Float)
 }

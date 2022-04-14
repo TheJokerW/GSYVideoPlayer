@@ -9,13 +9,14 @@ import com.joker.videoCache.interfaces.ICacheTask
 import com.joker.videoCache.interfaces.ICacheTaskManager
 import com.joker.videoCache.interfaces.IUrlParser
 import com.joker.videoCache.parser.DefaultParser
+import com.joker.videoCache.tasks.BaseTask
 import com.joker.videoCache.tasks.M3u8CacheTask
 import com.joker.videoCache.tasks.Mp4CacheTask
+import com.safframework.statemachine.model.BaseEvent
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.locks.Lock
 
 /**
  * @ClassName LocalCacheTaskManager
@@ -25,10 +26,10 @@ import java.util.concurrent.locks.Lock
  */
 
 sealed class CacheEvent {
-    class SubmitNewCacheTask(task: ICacheTask) : CacheEvent()
-    class ResumeCacheTask(task: ICacheTask) : CacheEvent()
-    class PauseCacheTask(task: ICacheTask) : CacheEvent()
-    class RemoveCacheTask(task: ICacheTask) : CacheEvent()
+    class CreateNewCacheTask(task: BaseTask) : CacheEvent()
+    class ResumeCacheTask(task: BaseTask) : CacheEvent()
+    class PauseCacheTask(task: BaseTask) : CacheEvent()
+    class RemoveCacheTask(task: BaseTask) : CacheEvent()
 }
 
 class LocalCacheTaskManager : ICacheTaskManager {
@@ -59,18 +60,18 @@ class LocalCacheTaskManager : ICacheTaskManager {
     }
 
     //管理所有Task的
-    private val cacheTaskMap: ConcurrentHashMap<String, ICacheTask> = ConcurrentHashMap()
+    private val cacheTaskMap: ConcurrentHashMap<String, BaseTask> = ConcurrentHashMap()
     private val cacheInfoMap: ConcurrentHashMap<String, VideoCacheInfo> = ConcurrentHashMap()
 
     //kotlin 的enum class 只有一个实例
-    private val typeTaskMap: ConcurrentHashMap<VideoType, Class<out ICacheTask>> =
+    private val typeTaskMap: ConcurrentHashMap<VideoType, Class<out BaseTask>> =
         ConcurrentHashMap()
 
 
     private var urlParser: IUrlParser = DefaultParser()
 
 
-    override fun register(type: VideoType, taskClazz: Class<out ICacheTask>) {
+    override fun register(type: VideoType, taskClazz: Class<out BaseTask>) {
         typeTaskMap[type] = taskClazz
     }
 
@@ -78,7 +79,7 @@ class LocalCacheTaskManager : ICacheTaskManager {
         urlParser = parser
     }
 
-    private fun getTask(url: String): ICacheTask? {
+    private fun getTask(url: String): BaseTask? {
         var task = cacheTaskMap[url]
         if (task == null) {
             //这里解析是耗时操作
@@ -90,6 +91,7 @@ class LocalCacheTaskManager : ICacheTaskManager {
                 return null
             }
             task = taskType.newInstance()
+            task.url = url
             if (task == null) {
                 Log.e(TAG, "createTask:can't create task type:$type taskName:$taskName")
             }
@@ -120,7 +122,7 @@ class LocalCacheTaskManager : ICacheTaskManager {
         lockWithUrl(url) {
             cacheTaskMap[url]?.let {
                 cacheTaskMap.remove(url)
-                it.remove()
+                it.end()
             }
             VideoLockManager.getInstance().removeLock(ProxyCacheUtils.computeMD5(url))
         }

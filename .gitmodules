@@ -1,0 +1,3 @@
+[submodule "KStateMachine"]
+	path = KStateMachine
+	url = https://github.com/TheJokerW/KStateMachine.git

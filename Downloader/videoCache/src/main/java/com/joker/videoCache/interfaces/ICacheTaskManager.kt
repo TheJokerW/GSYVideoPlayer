@@ -1,6 +1,7 @@
 package com.joker.videoCache.interfaces
 
 import com.joker.videoCache.VideoType
+import com.joker.videoCache.tasks.BaseTask
 
 /**
  * @ClassName ICacheTaskManager
@@ -10,7 +11,7 @@ import com.joker.videoCache.VideoType
  */
 interface ICacheTaskManager {
 
-    fun register(type: VideoType, taskClazz: Class<out ICacheTask>)
+    fun register(type: VideoType, taskClazz: Class<out BaseTask>)
     fun registerUrlParser(parser: IUrlParser)
     fun submitCacheTask(url: String)
     fun resumeCacheTask(url: String)
